@@ -71,6 +71,9 @@ define monitor::mount (
     }
   }
 
+  if ($tool =~ /systemd/) {
+  }
+
   if ($tool =~ /nagios/) {
     nagios::service { "Mount_${escapedname}":
       ensure        => $computed_ensure,

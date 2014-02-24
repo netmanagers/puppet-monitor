@@ -22,6 +22,9 @@ define monitor::process (
     true  => 'present',
   }
 
+  if ($tool =~ /systemd/) {
+  }
+
   if ($tool =~ /munin/) {
   }
 

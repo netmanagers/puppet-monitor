@@ -31,6 +31,9 @@ define monitor::port (
     true  => 'present',
   }
 
+  if ($tool =~ /systemd/) {
+  }
+
   if ($tool =~ /munin/) {
   }
 
