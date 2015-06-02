@@ -31,18 +31,6 @@ define monitor::port (
     true  => 'present',
   }
 
-  if ($tool =~ /systemd/) {
-  }
-
-  if ($tool =~ /munin/) {
-  }
-
-  if ($tool =~ /collectd/) {
-  }
-
-  if ($tool =~ /monit/) {
-  }
-
   $tcp_check_command = $real_checksource ? {
     local   => "check_nrpe!check_port_tcp!${target}!${port}",
     default => "check_tcp!${port}",
