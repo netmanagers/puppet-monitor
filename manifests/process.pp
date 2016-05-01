@@ -23,7 +23,7 @@ define monitor::process (
     true  => 'present',
   }
 
-  if ($tool =~ /monit/) {
+  if ('monit' in $tool) {
     monit::checkpid { $name:
       pidfile      => $pidfile,
       process      => "${process}${argument}",
@@ -33,7 +33,7 @@ define monitor::process (
     }
   }
 
-  if ($tool =~ /bluepill/) {
+  if ('bluepill' in $tool) {
     bluepill::process { $name:
       pidfile      => $pidfile,
       process      => "${process}${argument}",
@@ -44,7 +44,7 @@ define monitor::process (
     }
   }
 
-  if ($tool =~ /eye/) {
+  if ('eye' in $tool) {
     eye::process { $name:
       pidfile      => $pidfile,
       process      => "${process}${argument}",
@@ -66,7 +66,7 @@ define monitor::process (
     default => $default_check_command,
   }
 
-  if ($tool =~ /nagios/) {
+  if ('nagios' in $tool) {
     nagios::service { $name:
       ensure              => $ensure,
       service_description => $service_description,
@@ -75,7 +75,7 @@ define monitor::process (
     }
   }
 
-  if ($tool =~ /icinga/) {
+  if ('icinga' in $tool) {
     icinga::service { $name:
       ensure              => $ensure,
       service_description => $service_description,
@@ -95,7 +95,7 @@ define monitor::process (
     default => $puppi_default_command,
   }
 
-  if ($tool =~ /puppi/) {
+  if ('puppi' in $tool) {
     puppi::check { $name:
       enable   => $bool_enable,
       hostwide => 'yes',
